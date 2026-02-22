@@ -1,0 +1,12 @@
+# Datos locales (cada dev crea propio)
+tasks.db
+.venv/
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# Deploy
+.env
