@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for  # Flask to
 import sqlite3  # DB built-in Python
 
 app = Flask(__name__)  # App principal (busca templates/static aquí)
+app.config['SECRET_KEY'] = 'ask-manager-diego-usil-2026-render'
 
 # Helper: conexión DB segura
 def get_db():
@@ -61,7 +62,6 @@ def delete(task_id):
 
 
 if __name__ == '__main__':  # Solo si ejecutas directo
-    init_db()
     app.run(debug=True)  # debug=reload auto, puerto 5000
 
-
+init_db()
