@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Tus Tasks (SQLite):</h2>
+<ul>
+    {% if tasks %}
+        {% for task in tasks %}
+        <li style="{% if task.done %}text-decoration: line-through; background: #d4edda; color: green;{% endif %}">
+            <strong>{{ task.title }}</strong>: {{ task.description or 'Sin desc' }}
+            <small>ID {{ task.id }} | {% if task.done %}✅ Hecha{% else %}⏳ Pendiente{% endif %}</small><br>
+            <a href="{{ url_for('toggle', task_id=task.id) }}" style="background:#ffc107; padding:5px; margin:5px; text-decoration:none;">🔄 Toggle</a>
+            <a href="{{ url_for('delete', task_id=task.id) }}" onclick="return confirm('¿Borrar ID {{ task.id }}?')" style="background:#dc3545; color:white; padding:5px; margin:5px; text-decoration:none;">🗑️ Delete</a>
+        </li>
+        {% endfor %}
+    {% else %}
+        <li>📭 Sin tasks. <a href="{{ url_for('add_task') }}">Agrega una</a></li>
+    {% endif %}
+</ul>
+{% endblock %}
+

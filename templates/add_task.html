@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>➕ Agregar Task</h2>
+<form method="POST">
+    <input type="text" name="title" placeholder="Título (req)" required style="width:300px;"><br><br>
+    <textarea name="description" placeholder="Descripción opcional" rows="3" style="width:300px;"></textarea><br><br>
+    <button type="submit">💾 Guardar</button>
+</form>
+{% endblock %}
